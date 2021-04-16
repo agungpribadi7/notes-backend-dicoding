@@ -20,3 +20,13 @@ pergi ke extentions vscode, install ESLint
 
 add "lint": "eslint ./" in scripts
 npm run lint
+
+untuk melihat visualisasinya, kunjungi http://ec2-13-212-153-62.ap-southeast-1.compute.amazonaws.com:8000/ (disediakan dicoding)
+setelah itu, connect ke ec2 menggunakan ssh, pull project dari github, lalu jalankan perintah npm run start-prod, backend sudah dimulai
+lalu kembali ke http://ec2-13-212-153-62.ap-southeast-1.compute.amazonaws.com:8000/, tekan tombol 'Change URL' masukkan IP public dari ec2 ditambah dengan port 5000,
+contoh 'http://13.212.204.175:5000/'
+
+Fitur:
+- Menambahkan data notes
+- Memodifikasi nilai dari data
+- Menghapus data notes
