@@ -30,6 +30,13 @@ const routes = [
         method: 'DELETE',
         path: '/notes/{id}',
         handler: deleteSpecifiedNote,
+    },
+    {
+        method: ['*'],
+        path: '/',
+        handler: (request, h) => {
+            return h.response('Test').code(200);
+        }
     }
 
 ]
