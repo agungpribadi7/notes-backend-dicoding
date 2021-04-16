@@ -85,13 +85,19 @@ const updateSpecifiedNoteHandler = (request, h) => {
 }
 
 const deleteSpecifiedNote = (request, h) => {
-    const {id} = h.params;
+    const {id} = request.params;
     const idxArray = notes.reduce((note) => note.id === id);
-    notes.splice(id, 1);
-    let response = h.response({
-        status: 'success',
-        message: 'Note berhasil dihapus'
-    });
-    
+
+    if(idxArray !== -1){
+        notes.splice(id, 1);
+        return h.response({
+            status: 'success',
+            message: 'Note berhasil dihapus'
+        });
+    }
+
+    const response = h.response({status: 'fail', message: 'Not found'}).code(404)
+    return response;
 }
-module.exports = {addNoteHandler, getAllNotesHandler, getSpecifiedNoteHandler, updateSpecifiedNoteHandler};
+
+module.exports = {addNoteHandler, getAllNotesHandler, getSpecifiedNoteHandler, updateSpecifiedNoteHandler, deleteSpecifiedNote};
